@@ -14,25 +14,33 @@ class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
-            JetCinemaTheme {
-                // A surface container using the 'background' color from the theme
-                Surface(color = MaterialTheme.colors.background) {
-                    Greeting("Android")
-                }
+            MyApp {
+                MainContent()
             }
         }
     }
 }
 
 @Composable
-fun Greeting(name: String) {
-    Text(text = "Hello $name!")
+fun MyApp(content: @Composable () -> Unit) {
+    JetCinemaTheme {
+        // A surface container using the 'background' color from the theme
+        Surface(color = MaterialTheme.colors.background) {
+            content()
+        }
+    }
 }
+
+@Composable
+fun MainContent() {
+    Text(text = "Hello Android")
+}
+
 
 @Preview(showBackground = true)
 @Composable
 fun DefaultPreview() {
-    JetCinemaTheme {
-        Greeting("Android")
+    MyApp {
+        MainContent()
     }
 }
