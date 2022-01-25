@@ -133,18 +133,21 @@ fun MovieItem(movie: Movie = getMovies().first(), onItemClick: (String) -> Unit)
                 }
             }
 
-            Icon(
-                imageVector = Icons.Filled.KeyboardArrowDown,
-                contentDescription = "Card Expansion Button",
+            IconButton(
+                onClick = { expanded = !expanded },
                 modifier = Modifier
-                    .size(50.dp)
+                    .size(60.dp)
                     .weight(20f)
                     .rotate(rotation)
-                    .clickable {
-                        expanded = !expanded
-                    },
-                tint = Color.DarkGray
-            )
+                    .padding(end = 8.dp)
+            ) {
+                Icon(
+                    imageVector = Icons.Filled.KeyboardArrowDown,
+                    contentDescription = "Card Expansion Button",
+                    tint = Color.DarkGray,
+                    modifier = Modifier.size(40.dp)
+                )
+            }
         }
     }
 }
