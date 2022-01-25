@@ -4,6 +4,7 @@ import androidx.compose.runtime.Composable
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
+import com.mahan.jetcinema.ui.screens.HomeScreen
 
 @Composable
 fun MovieNavigation () {
@@ -17,6 +18,7 @@ fun MovieNavigation () {
         composable(route = MovieScreens.HomeScreen.name) {
             // Here we Pass where this should lead us to
             // In that case we are going to HomeScreen
+            HomeScreen(navController = navController)
         }
     }
 }

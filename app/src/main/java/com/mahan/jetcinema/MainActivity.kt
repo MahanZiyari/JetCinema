@@ -8,6 +8,7 @@ import androidx.compose.material.Surface
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.tooling.preview.Preview
+import com.mahan.jetcinema.navigation.MovieNavigation
 import com.mahan.jetcinema.ui.theme.JetCinemaTheme
 
 class MainActivity : ComponentActivity() {
@@ -15,7 +16,7 @@ class MainActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
         setContent {
             MyApp {
-                MainContent()
+                MovieNavigation()
             }
         }
     }
@@ -31,16 +32,12 @@ fun MyApp(content: @Composable () -> Unit) {
     }
 }
 
-@Composable
-fun MainContent() {
-    Text(text = "Hello Android")
-}
 
 
 @Preview(showBackground = true)
 @Composable
 fun DefaultPreview() {
     MyApp {
-        MainContent()
+        MovieNavigation()
     }
 }
