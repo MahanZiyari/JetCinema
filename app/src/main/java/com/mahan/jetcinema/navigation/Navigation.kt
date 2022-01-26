@@ -1,13 +1,18 @@
 package com.mahan.jetcinema.navigation
 
+import androidx.compose.animation.ExperimentalAnimationApi
 import androidx.compose.runtime.Composable
+import androidx.navigation.NavType
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
+import androidx.navigation.navArgument
+import com.mahan.jetcinema.ui.screens.DetailsScreen
 import com.mahan.jetcinema.ui.screens.HomeScreen
 
+@ExperimentalAnimationApi
 @Composable
-fun MovieNavigation () {
+fun MovieNavigation() {
     val navController = rememberNavController()
 
     NavHost(
@@ -19,6 +24,17 @@ fun MovieNavigation () {
             // Here we Pass where this should lead us to
             // In that case we are going to HomeScreen
             HomeScreen(navController = navController)
+        }
+
+        composable(
+            route = MovieScreens.DetailsScreen.name + "/{movieId}",
+            arguments = listOf(
+                navArgument(
+                    name = "movieId",
+                    builder = { type = NavType.StringType })
+            )
+        ) {
+            DetailsScreen(navController = navController, it.arguments?.getString("movieId"))
         }
     }
 }

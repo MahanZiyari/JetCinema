@@ -44,7 +44,7 @@ fun MovieItem(movie: Movie = getMovies().first(), onItemClick: (String) -> Unit)
     // Ui
     Card(
         modifier = Modifier
-            .padding(2.dp)
+            .padding(6.dp)
             .fillMaxWidth()
             .clickable {
                 onItemClick(movie.id)

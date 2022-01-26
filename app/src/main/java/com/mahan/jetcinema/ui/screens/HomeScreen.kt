@@ -13,6 +13,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
 import com.mahan.jetcinema.model.getMovies
+import com.mahan.jetcinema.navigation.MovieScreens
 import com.mahan.jetcinema.ui.widgets.MovieItem
 
 @ExperimentalAnimationApi
@@ -25,7 +26,7 @@ fun HomeScreen(navController: NavController) {
                 title = { Text(text = "Jet Cinema") },
                 elevation = 6.dp
             )
-        },
+        }
     ) {
         // Scaffold Scope
         MainContent(navController = navController)
@@ -41,6 +42,7 @@ fun MainContent(navController: NavController) {
                 movie = it,
                 onItemClick = {
                     //Todo: Navigate to Detail Screen
+                    navController.navigate(route = MovieScreens.DetailsScreen.name + "/$it")
                 }
             )
         }

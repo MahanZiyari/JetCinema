@@ -3,6 +3,7 @@ package com.mahan.jetcinema
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
+import androidx.compose.animation.ExperimentalAnimationApi
 import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Surface
 import androidx.compose.material.Text
@@ -12,6 +13,7 @@ import com.mahan.jetcinema.navigation.MovieNavigation
 import com.mahan.jetcinema.ui.theme.JetCinemaTheme
 
 class MainActivity : ComponentActivity() {
+    @ExperimentalAnimationApi
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
@@ -34,6 +36,7 @@ fun MyApp(content: @Composable () -> Unit) {
 
 
 
+@ExperimentalAnimationApi
 @Preview(showBackground = true)
 @Composable
 fun DefaultPreview() {
